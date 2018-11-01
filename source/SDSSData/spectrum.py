@@ -1,4 +1,5 @@
 from astropy.io import fits
+import numpy
 import os
 
 class SpectralData(object):
@@ -9,6 +10,7 @@ class SpectralData(object):
         self.filepath = filepath
         self.right_ascension = None
         self.declination = None
+        self.rms = None
 
         return
 
@@ -28,6 +30,15 @@ class SpectralData(object):
             self.declination = float(file[0].header["DEC"])
 
         return self.declination
+
+    @property
+    def standard_deviation(self):
+        if self.rms == None:
+            file = fits.open(self.filepath)
+            flux_column = file[1].data['flux']
+            self.rms = numpy.std(flux_column)
+        return self.rms
+
 
 
 class FilePathNotSpecified(Exception):
