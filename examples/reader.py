@@ -1,4 +1,4 @@
-import SDSSData
+from SDSSData import search, spectrum
 from astropy.io import fits
 import argparse
 import sys
@@ -17,7 +17,9 @@ if args.min > args.max:
 
 data_list = args.files
 
-passed_files = SDSSData.SpectrumSearch(z=[zmin, zmax], kind=keyword, range=[arg.min, arg.max])
+passed_files = search(data_list, args.keyword, args.min, args.max)
+
+print(passed_files) 
 
 # for spectrum in spectra:
 #     ra = spectrum.ra
