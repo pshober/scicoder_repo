@@ -1,4 +1,4 @@
-from spectrum import SpectralData
+from SDSSData.spectrum import SpectralData 
 from astropy.io import fits
 
 filelist = list()

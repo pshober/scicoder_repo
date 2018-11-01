@@ -1,4 +1,5 @@
-from SDSSData import search, spectrum
+from SDSSData.search import search
+from SDSSData.spectrum import SpectralData  
 from astropy.io import fits
 import argparse
 import sys
