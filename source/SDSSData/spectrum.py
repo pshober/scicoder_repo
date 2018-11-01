@@ -9,6 +9,7 @@ class SpectralData(object):
         self.filepath = filepath
         self.right_ascension = None
         self.declination = None
+        self.rms = None
 
         return
 
@@ -28,6 +29,10 @@ class SpectralData(object):
             self.declination = file[0].header["DEC"]
 
         return self.declination
+
+    @property
+    def standard_deviation(self):
+        file = fits.open(self.filepath)
 
 
 class FilePathNotSpecified(Exception):
