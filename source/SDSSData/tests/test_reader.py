@@ -1,5 +1,5 @@
 
-from .spectrum import spectrum_search
+from .SDSSData.search import search
 
 files = ['../../../data/spec-4055-55359-0001.fits',
          '../../../data/spec-4055-55359-0006.fits',
@@ -8,7 +8,7 @@ files = ['../../../data/spec-4055-55359-0001.fits',
 
 def test_search_return():
     'test the search returns a list of strings'
-    assert
+    assert #
     
 def test_ra_dec_return():
     'test that spectrum_search returns a list'

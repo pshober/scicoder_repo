@@ -1,5 +1,5 @@
 
-from .spectrum import SpectralData
+from .SDSSData.spectrum import SpectralData
 
 files = ['../../../data/spec-4055-55359-0001.fits',
          '../../../data/spec-4055-55359-0006.fits',

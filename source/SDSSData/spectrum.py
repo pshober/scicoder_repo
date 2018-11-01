@@ -1,12 +1,5 @@
 from astropy.io import fits
-
 import os
-
-def SpectrumSearch(path, z, kind, mag):
-
-    return
-
-
 
 class SpectralData(object):
 
