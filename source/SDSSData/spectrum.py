@@ -14,7 +14,6 @@ class SpectralData(object):
         if filepath == None:
             raise FilePathNotSpecified("File has not been specified")
         self.filepath = filepath
-        self.data = sfits.open(filepath)
         self.right_ascension = None
         self.declination = None
 
@@ -23,14 +22,17 @@ class SpectralData(object):
     @property
     def ra(self):
         if self.right_ascension == None:
-            self.right_ascension = self.data.header["RA"]
+            file = fits.open(self.filepath)
+
+            self.right_ascension = file[0].header["RA"]
 
         return self.right_ascension
 
     @property
     def dec(self):
         if self.declination == None:
-            self.declination = self.data.header["DEC"]
+            file = fits.open(self.filepath)
+            self.declination = file[0].header["DEC"]
 
         return self.declination
 
