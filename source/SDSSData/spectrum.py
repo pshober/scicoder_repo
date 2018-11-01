@@ -21,30 +21,17 @@ class SpectralData(object):
 
     @property
     def ra(self):
-<<<<<<< HEAD
         if getattr(self,'right_ascension',None) is None:
-            file = fits.open(self.filepath)
-
-            self.right_ascension = float(file[0].header["RA"])
-=======
-        if self.right_ascension == None:
             with fits.open(self.filepath) as file
                 self.right_ascension = float(file[0].header["RA"])
->>>>>>> 038ff2cf9081cb18e3ed11a2f899b10b5b04c923
             
         return self.right_ascension
 
     @property
     def dec(self):
-<<<<<<< HEAD
         if getattr(self,'declination',None) is None:
-            file = fits.open(self.filepath)
-            self.declination = float(file[0].header["DEC"])
-=======
-        if self.declination == None:
             with fits.open(self.filepath) as file
                 self.declination = float(file[0].header["DEC"])
->>>>>>> 038ff2cf9081cb18e3ed11a2f899b10b5b04c923
 
         return self.declination
 
