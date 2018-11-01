@@ -8,8 +8,8 @@ import os
 parser = argparse.ArgumentParser(description="reads fit file and returns ra, dec")
 
 parser.add_argument("-d", "--directory", type=str, help="the directory containing all files to test")
-parser.add_argument("-min", "--min", help="minimum of search range", default=0)
-parser.add_argument("-max", "--max", help="maximum of search range", default=0)
+parser.add_argument("-min", "--min", help="minimum of search range", type=float)
+parser.add_argument("-max", "--max", help="maximum of search range", type=float)
 parser.add_argument("-k", "--keyword",help="keyword to search", choices={'right_ascension','declination'})
 args = parser.parse_args()
 
@@ -19,7 +19,7 @@ if args.min > args.max:
 
 files_list = os.listdir(args.directory) 
 data_list  = [os.path.join(args.directory,filename) for filename in files_list]
-
+ 
 passed_files = search(data_list, args.keyword, args.min, args.max)
 
 print(passed_files) 

@@ -18,7 +18,7 @@ class SpectralData(object):
             file = fits.open(self.filepath)
 
             self.right_ascension = float(file[0].header["RA"])
-
+            
         return self.right_ascension
 
     @property

@@ -9,15 +9,11 @@ def search(filenames,keyword,min_ang,max_ang):
     for filename in filenames:
         data = SpectralData(filename)
         if keyword == 'right_ascension':
-            try: 
-                if min_ang < data.right_ascension < max_ang:
-                    filelist.append(filename)
-            except TypeError: 
-                pass 
+            if data.ra != None: 
+                if min_ang < data.ra < max_ang:
+                    filelist.append(filename) 
         elif keyword == 'declination': 
-            try: 
-                if min_ang < data.declination < max_ang: 
+            if data.dec != None: 
+                if min_ang < data.dec < max_ang: 
                     filelist.append(filename)
-            except TypeError: 
-                pass 
     return filelist
