@@ -17,7 +17,7 @@ class SpectralData(object):
         if self.right_ascension == None:
             file = fits.open(self.filepath)
 
-            self.right_ascension = file[0].header["RA"]
+            self.right_ascension = float(file[0].header["RA"])
 
         return self.right_ascension
 
@@ -25,7 +25,7 @@ class SpectralData(object):
     def dec(self):
         if self.declination == None:
             file = fits.open(self.filepath)
-            self.declination = file[0].header["DEC"]
+            self.declination = float(file[0].header["DEC"])
 
         return self.declination
 
