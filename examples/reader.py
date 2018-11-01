@@ -22,7 +22,14 @@ data_list  = [os.path.join(args.directory,filename) for filename in files_list]
  
 passed_files = search(data_list, args.keyword, args.min, args.max)
 
-print(passed_files) 
+print('\n----------------------------------------') 
+print('-----Files that satisfy constraints-----') 
+print('----------------------------------------\n')
+ 
+print(f"{len(passed_files)} out of {len(files_list)} files satisfy.\n") 
+
+for file in passed_files: 
+   print(file) 
 
 # for spectrum in spectra:
 #     ra = spectrum.ra
